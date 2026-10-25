@@ -11,7 +11,7 @@
 
 > **Solución Integral de Prueba Técnica:** Implementación desacoplada de un sistema bancario transaccional bajo principios de **Clean Architecture**, **Domain-Driven Design (DDD)**, **Event-Driven Architecture (EDA)** y despliegue contenerizado.
 
-URL del reporistorio: https://github.com/andresgouts/Banking-demo
+URL del reporistorio: https://github.com/andresgouts/banking-demo
 
 ---
 
