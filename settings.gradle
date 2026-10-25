@@ -1,0 +1,5 @@
+rootProject.name = 'banking-demo'
+
+include 'common-security'
+include 'cliente-service'
+include 'cuenta-movimientos-service'

@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'groovy'
+}
+
+dependencies {
+    implementation project(':common-security')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'com.h2database:h2'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test'
+    testImplementation 'org.spockframework:spock-core:2.4-M4-groovy-4.0'
+    testImplementation 'org.spockframework:spock-spring:2.4-M4-groovy-4.0'
+    testImplementation 'org.apache.groovy:groovy:4.0.22'
+    testImplementation 'io.cucumber:cucumber-java:7.18.1'
+    testImplementation 'io.cucumber:cucumber-spring:7.18.1'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.18.1'
+    testImplementation 'org.junit.platform:junit-platform-suite'
+}
+
+tasks.named('test') {
+    useJUnitPlatform {
+        includeEngines 'spock'
+    }
+}
+
+tasks.register('cucumberTest', Test) {
+    description = 'Ejecuta las pruebas de integracion BDD con Cucumber'
+    group = 'verification'
+    useJUnitPlatform {
+        includeEngines 'cucumber'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+}
+
+tasks.named('check') {
+    dependsOn 'cucumberTest'
+}

@@ -1,0 +1,22 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api 'org.slf4j:slf4j-api'
+    api 'org.springframework.security:spring-security-core'
+    api 'org.springframework.security:spring-security-web'
+    api 'org.springframework.security:spring-security-config'
+    api 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    api 'io.jsonwebtoken:jjwt-api:0.12.6'
+    api 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    api 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+    api 'com.fasterxml.jackson.core:jackson-databind'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
+    testImplementation 'org.assertj:assertj-core:3.26.3'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

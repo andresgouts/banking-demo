@@ -1,0 +1,5 @@
+CREATE DATABASE db_clientes;
+CREATE DATABASE db_cuentas;
+
+GRANT ALL PRIVILEGES ON DATABASE db_clientes TO postgres;
+GRANT ALL PRIVILEGES ON DATABASE db_cuentas TO postgres;
